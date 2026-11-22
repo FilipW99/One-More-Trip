@@ -1,0 +1,166 @@
+/**
+ * PLACEHOLDER CONTENT: act locations, routes and Slayer masters.
+ *
+ * Design doc §3.1 builds a route from four named source-game locations plus an
+ * alternate volcanic route. These generic settings keep the same progression:
+ * a starter dungeon, a war-fortress with two possible generals, a vampiric raid,
+ * a desert-tomb finale and a wave gauntlet.
+ */
+import type { ActDef, RouteDef, SlayerMasterDef } from './types';
+import { ph } from './placeholder';
+
+export const ACTS: ActDef[] = [
+  {
+    id: 'undercroft',
+    name: 'The Mossy Undercroft',
+    blurb: 'Damp tunnels under an old hill fort. Ogres, rats and worse.',
+    depth: 1,
+    theme: { floor: '#3d4a3a', floorAlt: '#36412f', wall: '#1e241c', accent: '#7fbf6a', fog: '#0d120c' },
+    monsters: ['cave_rat', 'hill_ogre', 'bone_archer', 'lesser_fiend'],
+    elites: ['ogre_chieftain'],
+    bosses: ['grumbold'],
+    dropPool: [
+      'bronze_scimitar', 'iron_scimitar', 'bronze_dagger', 'iron_dagger', 'iron_warhammer',
+      'bronze_full_helm', 'iron_full_helm', 'iron_platebody', 'iron_platelegs', 'bronze_platelegs',
+      'ashwood_shortbow', 'longbow', 'bronze_arrows', 'iron_arrows',
+      'leather_body', 'leather_chaps', 'leather_coif', 'leather_vambraces',
+      'water_staff', 'earth_staff', 'fire_staff', 'apprentice_hat', 'apprentice_robe', 'apprentice_skirt',
+      'spark_rune', 'storm_rune',
+      'travellers_cape', 'leather_gloves', 'leather_boots',
+      'bread', 'trout', 'salmon', 'devotion_draught', 'stamina_draught',
+      'logs', 'iron_ore',
+    ],
+    maxTier: 3,
+    slayerMaster: 'bracken',
+    roomCount: [9, 11],
+    enemiesPerRoom: [2, 3],
+    ph: ph('§3.1', 'Act 1 location (starter dungeon)'),
+  },
+  {
+    id: 'citadel',
+    name: 'The Warbound Citadel',
+    blurb: 'A fortress where two rival generals still fight a war nobody remembers.',
+    depth: 2,
+    theme: { floor: '#4a4038', floorAlt: '#423830', wall: '#221c18', accent: '#d08a3c', fog: '#120e0b' },
+    monsters: ['oathbound_soldier', 'oathbound_archer', 'oathbound_hexer', 'gorehound'],
+    elites: ['banner_captain'],
+    bosses: ['warlord_brakka', 'hellwarden_zarkoth'],
+    dropPool: [
+      'steel_scimitar', 'steel_warhammer', 'steel_full_helm', 'steel_platebody', 'steel_platelegs',
+      'cobalt_scimitar', 'cobalt_platelegs',
+      'elmwood_shortbow', 'steel_arrows', 'cobalt_arrows', 'studded_body', 'studded_chaps', 'archers_cloak',
+      'battlestaff', 'adept_hood', 'adept_robe', 'adept_skirt', 'mages_mantle', 'storm_rune', 'void_rune',
+      'salmon', 'tuna', 'devotion_draught', 'healing_brew', 'combat_draught', 'stamina_draught',
+      'logs', 'iron_ore', 'uncut_gem', 'sealed_casket',
+    ],
+    maxTier: 4,
+    slayerMaster: 'ysolde',
+    roomCount: [10, 12],
+    enemiesPerRoom: [2, 3],
+    ph: ph('§3.1', 'Act 2 location (war-god fortress)'),
+  },
+  {
+    id: 'spire',
+    name: 'The Crimson Spire',
+    blurb: 'A tower of red glass. Its hostess has kept a seat for you.',
+    depth: 3,
+    theme: { floor: '#3a2a32', floorAlt: '#33242b', wall: '#1a1014', accent: '#c0304a', fog: '#0e070a' },
+    monsters: ['blood_leech', 'spire_thrall', 'nightling_archer', 'nightling_witch'],
+    elites: ['spire_duelist'],
+    bosses: ['countess_vesperine'],
+    dropPool: [
+      'cobalt_scimitar', 'cobalt_full_helm', 'cobalt_platebody', 'orichalcum_scimitar', 'orichalcum_platelegs',
+      'bulwark_defender', 'combat_gloves', 'warrior_boots',
+      'ironwood_shortbow', 'cobalt_arrows', 'orichalcum_arrows',
+      'green_drakehide_body', 'green_drakehide_chaps', 'green_drakehide_vambraces', 'archers_buckler',
+      'adept_staff', 'arcanist_hood', 'arcanist_robe', 'spell_ward', 'void_rune',
+      'tuna', 'swordfish', 'healing_brew', 'devotion_draught', 'restoration_draught', 'combat_draught',
+      'uncut_gem', 'sealed_casket',
+    ],
+    maxTier: 5,
+    slayerMaster: 'mirela',
+    roomCount: [10, 12],
+    enemiesPerRoom: [2, 3],
+    ph: ph('§3.1', 'Act 3 location (blood-themed raid)'),
+  },
+  {
+    id: 'cinder_pits',
+    name: 'The Cinder Pits',
+    blurb: 'Wave after wave of fire creatures, and something huge at the bottom.',
+    depth: 3,
+    theme: { floor: '#3a2622', floorAlt: '#33201c', wall: '#160c0a', accent: '#ff6a2a', fog: '#0c0504' },
+    monsters: ['ember_bat', 'magma_crawler', 'obsidian_mage'],
+    elites: ['obsidian_brute'],
+    bosses: ['magmaw'],
+    dropPool: [
+      'cobalt_scimitar', 'orichalcum_scimitar', 'cobalt_platebody', 'warrior_boots',
+      'ironwood_shortbow', 'orichalcum_arrows', 'green_drakehide_body',
+      'fire_staff', 'adept_staff', 'arcanist_robe', 'void_rune',
+      'swordfish', 'healing_brew', 'restoration_draught',
+      'uncut_gem',
+    ],
+    maxTier: 5,
+    slayerMaster: 'kael',
+    roomCount: [7, 7],
+    enemiesPerRoom: [2, 3],
+    gauntlet: {
+      waves: [
+        ['ember_bat', 'ember_bat'],
+        ['magma_crawler', 'ember_bat'],
+        ['obsidian_mage', 'magma_crawler'],
+        ['obsidian_brute'],
+        ['obsidian_mage', 'obsidian_mage', 'magma_crawler'],
+      ],
+    },
+    ph: ph('§3.1', 'Alternate volcanic route location (wave cave)'),
+  },
+  {
+    id: 'tomb',
+    name: 'The Tomb of the Dawn',
+    blurb: 'A buried sun-temple. Its guardian has woken.',
+    depth: 4,
+    theme: { floor: '#6b5a3a', floorAlt: '#625232', wall: '#2e2416', accent: '#f0c050', fog: '#140f08' },
+    monsters: ['tomb_scarab', 'sand_sentinel', 'sunpriest', 'tomb_archer'],
+    elites: ['tomb_guardian'],
+    bosses: ['dawn_colossus'],
+    dropPool: [
+      'orichalcum_scimitar', 'starmetal_scimitar', 'orichalcum_platebody', 'starmetal_full_helm', 'starmetal_platelegs',
+      'starwood_shortbow', 'orichalcum_arrows', 'starmetal_arrows',
+      'red_drakehide_body', 'red_drakehide_chaps', 'black_drakehide_chaps',
+      'arcanist_staff', 'archmage_staff', 'arcanist_skirt', 'archmage_hood', 'archmage_robe', 'void_rune',
+      'swordfish', 'shark', 'manta_ray', 'restoration_draught', 'healing_brew', 'combat_draught',
+      'uncut_gem', 'sealed_casket',
+    ],
+    maxTier: 6,
+    slayerMaster: 'oren',
+    roomCount: [9, 11],
+    enemiesPerRoom: [2, 3],
+    ph: ph('§3.1', 'Finale location (desert tomb raid)'),
+  },
+];
+
+export const ROUTES: RouteDef[] = [
+  {
+    id: 'main',
+    name: 'The Long Delve',
+    description: 'Undercroft, Citadel, Spire, then the Tomb.',
+    acts: ['undercroft', 'citadel', 'spire', 'tomb'],
+    ph: null,
+  },
+  {
+    id: 'volcanic',
+    name: 'The Cinder Road',
+    description: 'Swap the Spire for the Cinder Pits wave gauntlet. Its boss always drops the Ember cape.',
+    acts: ['undercroft', 'citadel', 'cinder_pits', 'tomb'],
+    unlock: { feature: 'portal', tier: 1 },
+    ph: ph('§3.1', 'Alternate volcanic route'),
+  },
+];
+
+export const SLAYER_MASTERS: SlayerMasterDef[] = [
+  { id: 'bracken', name: 'Old Bracken', greeting: 'Back again? Good. These tunnels need thinning.', ph: ph('§6', 'Act 1 Slayer master') },
+  { id: 'ysolde', name: 'Captain Ysolde', greeting: 'Pick a side, then kill the other one.', ph: ph('§6', 'Act 2 Slayer master') },
+  { id: 'mirela', name: 'Mirela the Huntress', greeting: 'The Spire keeps its servants hungry. Make them less so.', ph: ph('§6', 'Act 3 Slayer master') },
+  { id: 'oren', name: 'Sand-seer Oren', greeting: 'The tomb wakes. Put a few of its keepers back to sleep.', ph: ph('§6', 'Finale Slayer master') },
+  { id: 'kael', name: 'Kael Ashborn', greeting: 'Nothing in the Pits stays dead for long.', ph: ph('§6', 'Volcanic route Slayer master') },
+];
