@@ -13,7 +13,8 @@
     "test:watch": "vitest",
     "e2e": "playwright test",
     "placeholders": "tsx scripts/placeholder-report.ts",
-    "sim": "tsx scripts/simulate.ts"
+    "sim": "tsx scripts/simulate.ts",
+    "check": "tsc --noEmit && vitest run && tsx scripts/placeholder-report.ts --check"
   },
   "devDependencies": {
     "@playwright/test": "1.63.0",
