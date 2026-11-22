@@ -31,6 +31,7 @@ Useful URL parameters: `?seed=123` fixes the trip seed, `?tick=100` speeds up co
 
 ## Docs
 
+- [docs/HANDOVER.md](docs/HANDOVER.md): start here if you are picking the project up: status, code map, known gaps and next steps.
 - [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md): how the code is laid out and how a trip flows.
 - [docs/DECISIONS.md](docs/DECISIONS.md): defaults chosen for the design doc's open questions, rules filled in, and first-pass balance numbers.
 - [docs/PLACEHOLDERS.md](docs/PLACEHOLDERS.md): every placeholder record (generated).
